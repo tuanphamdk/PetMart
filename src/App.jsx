@@ -95,9 +95,8 @@ export default function App() {
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <div className="min-h-screen w-full bg-white text-slate-800 flex flex-col">
-      {/* Thanh topbar trên cùng */}
-      <div className="w-full bg-[#041540] text-sky-200 text-xs py-1.5 px-4 sm:px-8 lg:px-14">
+    <div className="min-h-screen w-full bg-white text-stone-800 flex flex-col">
+      <div className="w-full bg-[#0d291c] text-amber-100 text-xs py-1.5 px-4 sm:px-8 lg:px-14">
         <div className="w-full flex items-center justify-between">
           <span>🐾 Pet Mart - Siêu thị thú cưng & Spa chăm sóc chuyên nghiệp</span>
           <div className="hidden sm:flex items-center gap-4">
@@ -206,19 +205,18 @@ export default function App() {
         onError={(errMsg) => showToast(errMsg, 'error')}
       />
 
-      {/* Hai nút tròn nổi góc dưới phải */}
       <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-3">
         <button
           onClick={() => showToast('Hotline tư vấn & đặt hàng: 1900 2100', 'success')}
           title="Gọi Hotline 1900 2100"
-          className="w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg flex items-center justify-center text-xl transition hover:scale-105 cursor-pointer"
+          className="w-12 h-12 rounded-full bg-[#9a5b28] hover:bg-[#7d471c] text-white shadow-lg flex items-center justify-center text-xl transition hover:scale-105 cursor-pointer"
         >
           📞
         </button>
         <button
           onClick={() => openBookingDialog('spa')}
           title="Đặt lịch Spa & Tư vấn nhanh"
-          className="w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 text-white shadow-lg flex items-center justify-center text-xl transition hover:scale-105 cursor-pointer"
+          className="w-12 h-12 rounded-full bg-[#143d2b] hover:bg-[#1f543c] text-white shadow-lg flex items-center justify-center text-xl transition hover:scale-105 cursor-pointer"
         >
           💬
         </button>

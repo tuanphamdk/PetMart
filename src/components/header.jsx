@@ -22,9 +22,8 @@ export default function Header({
   const isServiceActive = ['services', 'service-standard', 'service-spa'].includes(activePage);
 
   return (
-    <header className="bg-[#071f5c] text-white sticky top-0 z-30 shadow-md">
-      {/* Tầng 1: Logo + Search bar bo tròn + Nút Lịch sử + Giỏ hàng */}
-      <div className="max-w-7xl mx-auto px-4 pt-3.5 pb-2.5 flex items-center justify-between gap-4">
+    <header className="bg-[#143d2b] text-white sticky top-0 z-30 shadow-md">
+      <div className="w-full px-4 sm:px-8 lg:px-14 pt-3.5 pb-2.5 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -43,7 +42,6 @@ export default function Header({
           </button>
         </div>
 
-        {/* Thanh tìm kiếm trắng bo tròn ở giữa (Desktop) */}
         <div className="hidden md:flex flex-1 max-w-2xl items-center gap-2">
           <div className="relative flex-1">
             <input
@@ -51,12 +49,12 @@ export default function Header({
               value={search}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder="Tìm kiếm sản phẩm, thức ăn, chuồng, dịch vụ tại đây..."
-              className="w-full pl-5 pr-10 py-2.5 rounded-full bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300 text-sm shadow-xs"
+              className="w-full pl-5 pr-10 py-2.5 rounded-full bg-white text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-300 text-sm shadow-xs"
             />
             {search && (
               <button
                 onClick={() => onSearchChange('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 text-sm cursor-pointer"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 text-sm cursor-pointer"
               >
                 ✕
               </button>
@@ -64,7 +62,7 @@ export default function Header({
           </div>
           <button
             onClick={() => go('shop')}
-            className="w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center text-sky-300 transition cursor-pointer"
+            className="w-10 h-10 rounded-full hover:bg-white/10 flex items-center justify-center text-amber-200 transition cursor-pointer"
             aria-label="Tìm kiếm"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -74,14 +72,13 @@ export default function Header({
           </button>
         </div>
 
-        {/* Cụm nút bên phải: Lịch sử đặt hàng (pill trắng) + Giỏ hàng badge đỏ */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => go('history')}
             className={`hidden sm:flex items-center gap-2 px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition shadow-xs cursor-pointer ${
               activePage === 'history'
-                ? 'bg-sky-200 text-[#071f5c]'
-                : 'bg-white text-[#071f5c] hover:bg-sky-50'
+                ? 'bg-amber-200 text-[#143d2b]'
+                : 'bg-white text-[#143d2b] hover:bg-amber-50'
             }`}
           >
             <span>Lịch sử đặt</span>
@@ -96,14 +93,13 @@ export default function Header({
             <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6h13M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z" />
             </svg>
-            <span className="absolute -top-0.5 -right-0.5 min-w-5 h-5 px-1 bg-red-600 text-white text-[11px] font-bold rounded-full flex items-center justify-center shadow">
+            <span className="absolute -top-0.5 -right-0.5 min-w-5 h-5 px-1 bg-[#9a5b28] text-white text-[11px] font-bold rounded-full flex items-center justify-center shadow">
               {totalItems}
             </span>
           </button>
         </div>
       </div>
 
-      {/* Thanh tìm kiếm cho Mobile */}
       <div className="md:hidden px-4 pb-3">
         <div className="relative">
           <input
@@ -111,12 +107,12 @@ export default function Header({
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Tìm kiếm sản phẩm tại đây..."
-            className="w-full pl-4 pr-9 py-2 rounded-full bg-white text-slate-800 placeholder-slate-400 text-sm focus:outline-none"
+            className="w-full pl-4 pr-9 py-2 rounded-full bg-white text-stone-800 placeholder-stone-400 text-sm focus:outline-none"
           />
           {search && (
             <button
               onClick={() => onSearchChange('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm"
             >
               ✕
             </button>
@@ -124,21 +120,19 @@ export default function Header({
         </div>
       </div>
 
-      {/* Tầng 2: Menu căn giữa (Trang chủ | Sản phẩm | Dịch vụ | Lịch sử) */}
       <nav className="hidden md:block border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-9 h-11 text-sm font-semibold">
+        <div className="w-full px-4 sm:px-8 lg:px-14 flex items-center justify-center gap-9 h-11 text-sm font-semibold">
           <button
             onClick={() => go('home')}
             className={`h-full px-2 border-b-2 transition cursor-pointer ${
               activePage === 'home'
-                ? 'border-sky-300 text-sky-300'
-                : 'border-transparent text-white/95 hover:text-sky-200'
+                ? 'border-amber-300 text-amber-200'
+                : 'border-transparent text-white/95 hover:text-amber-100'
             }`}
           >
             Trang chủ
           </button>
 
-          {/* Sản phẩm + Dropdown */}
           <div
             className="relative h-full flex items-center"
             onMouseEnter={() => setOpenDropdown('products')}
@@ -148,8 +142,8 @@ export default function Header({
               onClick={() => go('shop')}
               className={`h-full px-2 border-b-2 flex items-center gap-1.5 transition cursor-pointer ${
                 isProductActive
-                  ? 'border-sky-300 text-sky-300'
-                  : 'border-transparent text-white/95 hover:text-sky-200'
+                  ? 'border-amber-300 text-amber-200'
+                  : 'border-transparent text-white/95 hover:text-amber-100'
               }`}
             >
               <span>Sản phẩm</span>
@@ -157,36 +151,35 @@ export default function Header({
             </button>
 
             {openDropdown === 'products' && (
-              <div className="absolute left-0 top-full w-64 bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-100 py-2.5 z-40">
+              <div className="absolute left-0 top-full w-64 bg-white text-stone-800 rounded-2xl shadow-xl border border-stone-100 py-2.5 z-40">
                 <button
                   onClick={() => go('dog')}
-                  className="w-full px-4 py-2.5 text-left hover:bg-sky-50 flex items-center gap-3 transition cursor-pointer"
+                  className="w-full px-4 py-2.5 text-left hover:bg-[#f4efe8] flex items-center gap-3 transition cursor-pointer"
                 >
-                  <span className="w-9 h-9 rounded-xl bg-sky-100 flex items-center justify-center text-lg">
+                  <span className="w-9 h-9 rounded-xl bg-[#f4efe8] flex items-center justify-center text-lg">
                     🐶
                   </span>
                   <div>
-                    <div className="font-bold text-sm text-[#071f5c]">Đồ cho chó</div>
-                    
+                    <div className="font-bold text-sm text-[#143d2b]">Đồ cho chó</div>
+                    <div className="text-[11px] text-stone-500">Đồ ăn, chuồng quây, sữa tắm</div>
                   </div>
                 </button>
                 <button
                   onClick={() => go('cat')}
-                  className="w-full px-4 py-2.5 text-left hover:bg-sky-50 flex items-center gap-3 transition cursor-pointer"
+                  className="w-full px-4 py-2.5 text-left hover:bg-[#f4efe8] flex items-center gap-3 transition cursor-pointer"
                 >
-                  <span className="w-9 h-9 rounded-xl bg-sky-100 flex items-center justify-center text-lg">
+                  <span className="w-9 h-9 rounded-xl bg-[#f4efe8] flex items-center justify-center text-lg">
                     🐱
                   </span>
                   <div>
-                    <div className="font-bold text-sm text-[#071f5c]">Đồ cho mèo</div>
-                    
+                    <div className="font-bold text-sm text-[#143d2b]">Đồ cho mèo</div>
+                    <div className="text-[11px] text-stone-500">Pate, hạt, cát vệ sinh, nhà đệm</div>
                   </div>
                 </button>
               </div>
             )}
           </div>
 
-          {/* Dịch vụ + Dropdown */}
           <div
             className="relative h-full flex items-center"
             onMouseEnter={() => setOpenDropdown('services')}
@@ -196,8 +189,8 @@ export default function Header({
               onClick={() => go('services')}
               className={`h-full px-2 border-b-2 flex items-center gap-1.5 transition cursor-pointer ${
                 isServiceActive
-                  ? 'border-sky-300 text-sky-300'
-                  : 'border-transparent text-white/95 hover:text-sky-200'
+                  ? 'border-amber-300 text-amber-200'
+                  : 'border-transparent text-white/95 hover:text-amber-100'
               }`}
             >
               <span>Dịch vụ</span>
@@ -205,20 +198,20 @@ export default function Header({
             </button>
 
             {openDropdown === 'services' && (
-              <div className="absolute left-0 top-full w-80 bg-white text-slate-800 rounded-2xl shadow-xl border border-slate-100 py-2.5 z-40">
+              <div className="absolute left-0 top-full w-80 bg-white text-stone-800 rounded-2xl shadow-xl border border-stone-100 py-2.5 z-40">
                 {SERVICES.map((srv) => (
                   <button
                     key={srv.id}
                     onClick={() => go(`service-${srv.id}`)}
-                    className="w-full px-4 py-2.5 text-left hover:bg-sky-50 flex items-start gap-3 transition cursor-pointer"
+                    className="w-full px-4 py-2.5 text-left hover:bg-[#f4efe8] flex items-start gap-3 transition cursor-pointer"
                   >
-                    <span className="w-9 h-9 rounded-xl bg-sky-100 flex items-center justify-center text-lg shrink-0">
+                    <span className="w-9 h-9 rounded-xl bg-[#f4efe8] flex items-center justify-center text-lg shrink-0">
                       {srv.emoji}
                     </span>
                     <div>
-                      <div className="font-bold text-sm text-[#071f5c]">{srv.name}</div>
-                      <div className="text-[11px] text-slate-500">
-                        
+                      <div className="font-bold text-sm text-[#143d2b]">{srv.name}</div>
+                      <div className="text-[11px] text-stone-500">
+                        Từ {srv.priceFrom} • {srv.duration}
                       </div>
                     </div>
                   </button>
@@ -231,8 +224,8 @@ export default function Header({
             onClick={() => go('history')}
             className={`h-full px-2 border-b-2 transition cursor-pointer ${
               activePage === 'history'
-                ? 'border-sky-300 text-sky-300'
-                : 'border-transparent text-white/95 hover:text-sky-200'
+                ? 'border-amber-300 text-amber-200'
+                : 'border-transparent text-white/95 hover:text-amber-100'
             }`}
           >
             Lịch sử
@@ -240,23 +233,22 @@ export default function Header({
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white text-slate-800 border-t border-slate-200 px-4 py-3 space-y-2 shadow-lg">
+        <div className="md:hidden bg-white text-stone-800 border-t border-stone-200 px-4 py-3 space-y-2 shadow-lg">
           <button
             onClick={() => go('home')}
             className={`block w-full text-left px-3 py-2 rounded-xl text-sm font-bold ${
-              activePage === 'home' ? 'bg-sky-50 text-[#071f5c]' : 'text-slate-700'
+              activePage === 'home' ? 'bg-[#f4efe8] text-[#143d2b]' : 'text-stone-700'
             }`}
           >
             Trang chủ
           </button>
 
-          <div className="border-t border-slate-100 pt-2">
+          <div className="border-t border-stone-100 pt-2">
             <button
               onClick={() => go('shop')}
               className={`block w-full text-left px-3 py-2 rounded-xl text-sm font-bold ${
-                activePage === 'shop' ? 'bg-sky-50 text-[#071f5c]' : 'text-slate-700'
+                activePage === 'shop' ? 'bg-[#f4efe8] text-[#143d2b]' : 'text-stone-700'
               }`}
             >
               Sản phẩm (Tất cả)
@@ -264,24 +256,24 @@ export default function Header({
             <div className="pl-4 mt-1 space-y-1">
               <button
                 onClick={() => go('dog')}
-                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-sky-50"
+                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-stone-600 hover:bg-[#f4efe8]"
               >
                 🐶 Đồ cho chó
               </button>
               <button
                 onClick={() => go('cat')}
-                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-sky-50"
+                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-stone-600 hover:bg-[#f4efe8]"
               >
                 🐱 Đồ cho mèo
               </button>
             </div>
           </div>
 
-          <div className="border-t border-slate-100 pt-2">
+          <div className="border-t border-stone-100 pt-2">
             <button
               onClick={() => go('services')}
               className={`block w-full text-left px-3 py-2 rounded-xl text-sm font-bold ${
-                activePage === 'services' ? 'bg-sky-50 text-[#071f5c]' : 'text-slate-700'
+                activePage === 'services' ? 'bg-[#f4efe8] text-[#143d2b]' : 'text-stone-700'
               }`}
             >
               Dịch vụ (Tổng quan)
@@ -289,24 +281,24 @@ export default function Header({
             <div className="pl-4 mt-1 space-y-1">
               <button
                 onClick={() => go('service-standard')}
-                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-sky-50"
+                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-stone-600 hover:bg-[#f4efe8]"
               >
                 🛁 Gói Tắm vệ sinh tiêu chuẩn
               </button>
               <button
                 onClick={() => go('service-spa')}
-                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-sky-50"
+                className="block w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium text-stone-600 hover:bg-[#f4efe8]"
               >
                 🌿 Gói Spa thư giãn nhẹ
               </button>
             </div>
           </div>
 
-          <div className="border-t border-slate-100 pt-2">
+          <div className="border-t border-stone-100 pt-2">
             <button
               onClick={() => go('history')}
               className={`block w-full text-left px-3 py-2 rounded-xl text-sm font-bold ${
-                activePage === 'history' ? 'bg-sky-50 text-[#071f5c]' : 'text-slate-700'
+                activePage === 'history' ? 'bg-[#f4efe8] text-[#143d2b]' : 'text-stone-700'
               }`}
             >
               📋 Lịch sử đơn & dịch vụ

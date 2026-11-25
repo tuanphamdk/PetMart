@@ -57,29 +57,29 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
   return (
     <main className="w-full bg-white flex-1">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
-        <div className="text-xs text-slate-500 mb-3">
+        <div className="text-xs text-stone-500 mb-3">
           <button
             onClick={() => onNavigate('home')}
-            className="hover:text-[#071f5c] cursor-pointer"
+            className="hover:text-[#143d2b] cursor-pointer"
           >
             Trang chủ
           </button>{' '}
-          / <span className="text-[#071f5c] font-semibold">Lịch sử đơn hàng & Dịch vụ</span>
+          / <span className="text-[#143d2b] font-semibold">Lịch sử đơn hàng & Dịch vụ</span>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#071f5c]">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#143d2b]">
               Lịch sử đã đặt
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
+            <p className="text-xs sm:text-sm text-stone-500 mt-1">
               Dữ liệu lưu trên backend (backend/db.json) — tải lại trang vẫn còn nguyên.
             </p>
           </div>
 
           <button
             onClick={fetchHistory}
-            className="self-start sm:self-auto px-4 py-2 rounded-full border border-slate-200 bg-sky-50 hover:bg-[#e8f1ff] text-xs sm:text-sm font-bold text-[#071f5c] transition cursor-pointer"
+            className="self-start sm:self-auto px-4 py-2 rounded-full border border-[#e6d5c1] bg-[#faf8f5] hover:bg-[#f4efe8] text-xs sm:text-sm font-bold text-[#9a5b28] transition cursor-pointer"
           >
             🔄 Tải lại dữ liệu
           </button>
@@ -90,8 +90,8 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
             onClick={() => setTab('orders')}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border transition cursor-pointer ${
               tab === 'orders'
-                ? 'bg-[#071f5c] text-white border-[#071f5c]'
-                : 'bg-white text-[#071f5c] border-slate-200 hover:border-[#071f5c]'
+                ? 'bg-[#143d2b] text-white border-[#143d2b]'
+                : 'bg-white text-[#143d2b] border-stone-200 hover:border-[#143d2b]'
             }`}
           >
             🛍️ Đơn hàng đã đặt ({orders.length})
@@ -100,8 +100,8 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
             onClick={() => setTab('bookings')}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold border transition cursor-pointer ${
               tab === 'bookings'
-                ? 'bg-[#071f5c] text-white border-[#071f5c]'
-                : 'bg-white text-[#071f5c] border-slate-200 hover:border-[#071f5c]'
+                ? 'bg-[#143d2b] text-white border-[#143d2b]'
+                : 'bg-white text-[#143d2b] border-stone-200 hover:border-[#143d2b]'
             }`}
           >
             🛁 Dịch vụ đã đặt ({bookings.length})
@@ -109,7 +109,7 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
         </div>
 
         {loading && (
-          <div className="bg-[#f8fafc] rounded-3xl border border-slate-200/80 p-8 text-center text-sm text-slate-500">
+          <div className="bg-[#faf8f5] rounded-3xl border border-stone-200/80 p-8 text-center text-sm text-stone-500">
             Đang tải dữ liệu từ backend...
           </div>
         )}
@@ -123,14 +123,14 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
         {!loading && !errorMsg && tab === 'orders' && (
           <div className="space-y-4">
             {orders.length === 0 ? (
-              <div className="bg-[#f8fafc] rounded-3xl border border-slate-200/80 p-10 text-center">
+              <div className="bg-[#faf8f5] rounded-3xl border border-stone-200/80 p-10 text-center">
                 <div className="text-4xl mb-2">📦</div>
-                <p className="text-sm font-semibold text-slate-700">
+                <p className="text-sm font-semibold text-stone-700">
                   Chưa có đơn hàng nào được lưu.
                 </p>
                 <button
                   onClick={() => onNavigate('shop')}
-                  className="mt-4 px-5 py-2.5 rounded-full bg-[#071f5c] hover:bg-[#0d2d7a] text-white text-xs sm:text-sm font-bold cursor-pointer"
+                  className="mt-4 px-5 py-2.5 rounded-full bg-[#143d2b] hover:bg-[#1f543c] text-white text-xs sm:text-sm font-bold cursor-pointer"
                 >
                   Đi mua sản phẩm
                 </button>
@@ -139,15 +139,15 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
               orders.map((order) => (
                 <div
                   key={order.id}
-                  className="bg-white rounded-3xl border border-slate-200/90 p-5 shadow-xs space-y-3"
+                  className="bg-white rounded-3xl border border-stone-200/90 p-5 shadow-xs space-y-3"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-stone-100">
                     <div>
-                      <span className="font-bold text-sm text-[#071f5c]">{order.id}</span>
-                      <span className="text-xs text-slate-400 ml-2.5">{order.createdAt}</span>
+                      <span className="font-bold text-sm text-[#143d2b]">{order.id}</span>
+                      <span className="text-xs text-stone-400 ml-2.5">{order.createdAt}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold bg-[#e8f1ff] text-[#071f5c] px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold bg-[#f4efe8] text-[#9a5b28] px-3 py-1 rounded-full">
                         {order.status}
                       </span>
                       <button
@@ -159,7 +159,7 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-600">
                     <div>
                       <strong>Người nhận:</strong> {order.fullName} ({order.phone})
                     </div>
@@ -177,17 +177,17 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
                     )}
                   </div>
 
-                  <div className="bg-[#f8fafc] rounded-2xl p-3.5 space-y-1.5">
+                  <div className="bg-[#faf8f5] rounded-2xl p-3.5 space-y-1.5">
                     {order.items.map((item, idx) => (
                       <div
                         key={idx}
-                        className="flex justify-between text-xs text-slate-700"
+                        className="flex justify-between text-xs text-stone-700"
                       >
                         <span>
                           {item.emoji} {item.name} ({item.variantLabel}) ×{' '}
                           <strong>{item.qty}</strong>
                         </span>
-                        <span className="font-semibold text-[#071f5c]">
+                        <span className="font-semibold text-[#143d2b]">
                           {formatVND(item.price * item.qty)}
                         </span>
                       </div>
@@ -195,8 +195,8 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
                   </div>
 
                   <div className="flex justify-end items-center gap-2 pt-1">
-                    <span className="text-xs text-slate-500">Tổng đơn:</span>
-                    <span className="text-base font-extrabold text-[#071f5c]">
+                    <span className="text-xs text-stone-500">Tổng đơn:</span>
+                    <span className="text-base font-extrabold text-[#9a5b28]">
                       {formatVND(order.totalPrice)}
                     </span>
                   </div>
@@ -209,14 +209,14 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
         {!loading && !errorMsg && tab === 'bookings' && (
           <div className="space-y-4">
             {bookings.length === 0 ? (
-              <div className="bg-[#f8fafc] rounded-3xl border border-slate-200/80 p-10 text-center">
+              <div className="bg-[#faf8f5] rounded-3xl border border-stone-200/80 p-10 text-center">
                 <div className="text-4xl mb-2">🛁</div>
-                <p className="text-sm font-semibold text-slate-700">
+                <p className="text-sm font-semibold text-stone-700">
                   Chưa có lịch dịch vụ nào được đặt.
                 </p>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="mt-4 px-5 py-2.5 rounded-full bg-[#071f5c] hover:bg-[#0d2d7a] text-white text-xs sm:text-sm font-bold cursor-pointer"
+                  className="mt-4 px-5 py-2.5 rounded-full bg-[#143d2b] hover:bg-[#1f543c] text-white text-xs sm:text-sm font-bold cursor-pointer"
                 >
                   Xem gói dịch vụ & Đặt lịch
                 </button>
@@ -225,17 +225,17 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
               bookings.map((bk) => (
                 <div
                   key={bk.id}
-                  className="bg-white rounded-3xl border border-slate-200/90 p-5 shadow-xs space-y-2.5"
+                  className="bg-white rounded-3xl border border-stone-200/90 p-5 shadow-xs space-y-2.5"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-slate-100">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-stone-100">
                     <div>
-                      <span className="font-bold text-sm text-[#071f5c]">
+                      <span className="font-bold text-sm text-[#143d2b]">
                         {bk.serviceName}
                       </span>
-                      <span className="text-xs text-slate-400 ml-2">({bk.id})</span>
+                      <span className="text-xs text-stone-400 ml-2">({bk.id})</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold bg-[#e8f1ff] text-[#071f5c] px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold bg-[#f4efe8] text-[#9a5b28] px-3 py-1 rounded-full">
                         {bk.status}
                       </span>
                       <button
@@ -247,7 +247,7 @@ export default function HistoryPage({ onNavigate, onShowToast }) {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-600">
                     <div>
                       <strong>Khách hàng:</strong> {bk.ownerName} ({bk.phone})
                     </div>
