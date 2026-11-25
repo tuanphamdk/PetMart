@@ -1,0 +1,32 @@
+name: PetMart CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Check Backend syntax & dependencies
+        working-directory: backend
+        run: |
+          npm ci
+          node --check server.js
+
+      - name: Install Frontend dependencies & Build
+        run: |
+          npm ci
+          npm run build
