@@ -1,0 +1,19 @@
+{
+  "orders": [],
+  "bookings": [
+    {
+      "id": "BK-1795641359223",
+      "createdAt": "04:15:59 26/11/2026",
+      "ownerName": "tuan",
+      "phone": "0123456789",
+      "petType": "Chó",
+      "weightRange": "Dưới 5 kg",
+      "serviceId": "standard",
+      "serviceName": "Gói Tắm vệ sinh tiêu chuẩn",
+      "date": "2026-11-27",
+      "timeSlot": "09:30",
+      "note": "",
+      "status": "Đã đặt lịch"
+    }
+  ]
+}
